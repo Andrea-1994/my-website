@@ -24,11 +24,6 @@
   user-select: none;
   -webkit-user-drag: none;
 
-  @media (max-width: var(--mobile)) {
-    font-size: 16px;
-    color: red;
-  }
-
   -webkit-tap-highlight-color: transparent;
 }
 
