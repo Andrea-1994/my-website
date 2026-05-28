@@ -1,0 +1,34 @@
+@use "../variables.scss" as *;
+
+.scroll-top {
+  position: fixed;
+  bottom: 75px;
+  right: 80px;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: var(--c1);
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: 0.5s ease;
+
+  opacity: 0;
+  pointer-events: none;
+
+  @media (max-width: $mobile) {
+    right: 10px;
+    bottom: 75px;
+  }
+
+  &.visible {
+    opacity: 0.7;
+    pointer-events: all;
+  }
+}
+
+.scroll-top:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,160 @@
+@use "../variables.scss" as *;
+
+.navbar {
+  margin: 30px -60px 60px;
+  width: auto;
+  box-sizing: border-box;
+  z-index: 10;
+
+  background: var(--bg);
+  border-radius: 30px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 2px 10px rgba(0, 0, 0, 0.04);
+
+  color: var(--black);
+  transition: background 2s ease;
+
+  background: linear-gradient(
+    var(--grad-angle),
+    var(--bg),
+    var(--c1),
+    var(--c2),
+    var(--c3),
+    var(--c4),
+    var(--c5),
+    var(--bg)
+  );
+
+  @media (max-width: $mobile) {
+    margin: 20px -30px 40px;
+  }
+
+  .links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+    background-color: var(--bg);
+    border-radius: 16px;
+    margin: 10px;
+    padding: 10px 50px;
+
+    @media (max-width: $mobile) {
+      justify-content: space-between;
+      padding: 10px 30px;
+      gap: 15px;
+    }
+
+    .nav-link {
+      color: var(--grey);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: 0.2s ease;
+
+      font-family: "Saira Stencil", sans-serif;
+
+      &.active {
+        text-decoration: underline;
+      }
+
+      &:not(:first-child) {
+        flex: 1;
+        @media (max-width: $mobile) {
+          display: none;
+        }
+      }
+
+      &:has(.icon) {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    .icon {
+      display: flex;
+      width: 35px;
+      height: 35px;
+      fill: var(--c1);
+      color: var(--c1);
+
+      &:active {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+
+    @media (max-width: $mobile) {
+      .mobile-nav {
+        display: flex;
+        position: relative;
+
+        button {
+          color: var(--bg);
+          width: 35px;
+          height: 35px;
+          line-height: 23px;
+          line-height: 23px;
+          padding: 5px 10px;
+
+          @media (max-width: $mobile) {
+            &:active {
+              width: 30px;
+              height: 30px;
+              line-height: 16px;
+              font-size: 12px;
+            }
+          }
+        }
+
+        .mobile-links {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          background: var(--bg);
+          justify-content: space-evenly;
+          align-items: center;
+          text-align: center;
+          gap: 15px;
+          background-color: var(--bg);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+          border-radius: 16px;
+          padding: 0px;
+          top: 60px;
+          right: 0;
+          overflow: hidden;
+          transition: 0.3s ease;
+
+          max-height: 0px;
+
+          opacity: 0;
+        }
+
+        .nav-link {
+          display: flex;
+          white-space: nowrap;
+          text-align: center;
+        }
+
+        .mobile-links.active {
+          max-height: 300px;
+          padding: 15px 30px;
+          opacity: 1;
+        }
+
+        hr {
+          margin: auto;
+          width: 30px;
+
+          border-bottom: 0.5px solid var(--black);
+        }
+      }
+    }
+  }
+}

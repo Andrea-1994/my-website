@@ -1,0 +1,265 @@
+@use "../variables.scss" as *;
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 40px;
+
+  box-sizing: border-box;
+
+  @media (max-width: $mobile) {
+    padding: 0;
+  }
+
+  .period-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+
+    &:first-child .year-box {
+      border-color: var(--c1);
+      min-height: 0px;
+    }
+
+    &:nth-child(3n + 1) {
+      .dot span {
+        background-color: var(--c2);
+      }
+    }
+
+    &:nth-child(3n + 2) {
+      .dot span {
+        background-color: var(--c3);
+      }
+    }
+
+    &:nth-child(3n + 3) {
+      .dot span {
+        background-color: var(--c4);
+      }
+    }
+
+    &:nth-child(3n + 4) {
+      .dot span {
+        background-color: var(--c5);
+      }
+    }
+
+    //if div after is exp
+    &:has(+ .exp) {
+      .year-marker small {
+        translate: 0 -10px;
+      }
+    }
+  }
+
+  .year-box {
+    width: auto;
+    min-height: 50px;
+    position: relative;
+    border-left: 3px solid var(--white);
+    min-width: 110px;
+
+    .year-hover {
+      position: absolute;
+      width: 200vw;
+      height: 100%;
+      translate: -50% 50%;
+      z-index: 9;
+    }
+
+    .year-marker {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      position: absolute;
+      bottom: -15px;
+      left: -16px;
+      padding-right: 6px;
+
+      .dot {
+        width: 30px;
+        height: 30px;
+        z-index: 2;
+        padding: 7px;
+
+        transition: 0.3s ease;
+        box-sizing: border-box;
+
+        span {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 20px;
+          border: 2px solid var(--bg);
+          box-sizing: border-box;
+          transition: 0.3s ease;
+        }
+      }
+
+      small {
+        font-weight: 600;
+        transition: 0.3s ease;
+        z-index: 2;
+      }
+
+      &.highlight {
+        //bottom: -16px;
+        //left: -16px;
+        .dot {
+          padding: 0px;
+
+          span {
+            border: 5px solid var(--bg);
+          }
+        }
+
+        small {
+          margin-left: 10px;
+          font-size: 16px;
+        }
+      }
+
+      &.highlight-closest {
+        //bottom: -13px;
+        //left: -13px;
+        .dot {
+          padding: 4px;
+
+          span {
+            border: 5px solid var(--bg);
+          }
+        }
+
+        small {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
+  .period-box.exp {
+    flex-direction: row;
+
+    .exp-years {
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-top: 2px dashed var(--bg);
+      min-width: 110px;
+
+      .year-box {
+        flex: 1;
+      }
+    }
+
+    &:has(.odd) .exp-years {
+      max-width: 20%;
+      @media (max-width: $mobile) {
+        max-width: 80px;
+      }
+    }
+  }
+
+  #year-1994 {
+    width: 50%;
+    border-bottom: 2px dashed var(--bg);
+
+    small {
+      translate: 0 -10px;
+    }
+  }
+
+  .card-exp.born {
+    height: fit-content;
+    margin-top: auto;
+    margin-left: 0;
+
+    .content {
+      translate: -50% 50%;
+      padding: 5px 20px;
+      min-height: 0;
+    }
+  }
+  .card-exp {
+    position: relative;
+    margin-left: -20px;
+    margin-top: -1px;
+
+    .content {
+      box-sizing: border-box;
+      text-align: left;
+      padding: 20px 40px;
+      max-width: 500px;
+      width: max-content;
+      min-height: 100%;
+      background-color: var(--bg);
+
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+      @media (max-width: $mobile) {
+        width: auto;
+        padding: 20px 20px;
+      }
+
+      p {
+        margin-bottom: 5px;
+      }
+
+      .type {
+        margin-bottom: 15px;
+        b {
+          color: color-mix(in srgb, var(--c2) 80%, black);
+          font-size: 14px;
+        }
+      }
+
+      .company,
+      .date {
+        h2 {
+          font-size: 21px;
+        }
+        small {
+          margin-right: 2px;
+        }
+        b {
+          margin-right: 5px;
+        }
+
+        @media (max-width: $mobile) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      .date {
+        margin-bottom: 20px;
+      }
+
+      .desc {
+        p {
+          font-size: 14px;
+        }
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        font-size: 21px;
+      }
+
+      hr {
+        margin-top: 30px;
+      }
+
+      strong {
+        font-size: 14px;
+      }
+    }
+  }
+}

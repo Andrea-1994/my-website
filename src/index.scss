@@ -1,0 +1,277 @@
+@use "./variables.scss" as *;
+
+:root {
+  /*variables*/
+  --grey: #5b5b5b;
+  --black: #212121;
+  --white: rgb(252, 255, 237);
+  --bg: rgb(253, 255, 242);
+  --error: rgba(255, 123, 106, 0.622);
+
+  --grad-angle: 60deg;
+
+  /*-------*/
+
+  color: var(--grey);
+  background: var(--bg);
+
+  letter-spacing: 0.18px;
+  font-family: "Saira", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 200;
+  user-select: none;
+  -webkit-user-drag: none;
+
+  @media (max-width: var(--mobile)) {
+    font-size: 16px;
+    color: red;
+  }
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  /*for dark mode only*/
+}
+
+body {
+  margin: 0;
+  display: flex;
+
+  &.buio {
+    background: black !important;
+    color: var(--white) !important;
+    * {
+      background: black !important;
+      color: var(--white) !important;
+      &::before {
+        background-color: var(--white) !important;
+      }
+    }
+
+    #main_container {
+      border-left: 2px dashed var(--white);
+      border-right: 2px dashed var(--white);
+    }
+
+    .navbar {
+      background-color: var(--white) !important;
+    }
+
+    .content,
+    .content img,
+    button,
+    .btn,
+    form,
+    .footer-content,
+    .bio-content,
+    .mobile-links {
+      border: 2px solid var(--white) !important;
+    }
+
+    .popup-general,
+    .popup {
+      border: 2px dashed var(--white) !important;
+    }
+
+    .content img {
+      border: 2px solid var(--white) !important;
+      filter: grayscale(100%) contrast(6);
+    }
+
+    .card-image-text .content {
+      border: none !important;
+    }
+
+    .projects .content {
+      padding: 8px;
+    }
+
+    .icon:not(.email .icon) {
+      fill: var(--white) !important;
+    }
+
+    .mobile-nav button {
+      padding: 4px 8px !important;
+    }
+
+    .card-exp {
+      background-color: transparent !important;
+    }
+
+    .year-marker {
+      small {
+        background-color: transparent !important;
+      }
+    }
+  }
+}
+
+#root {
+  margin: 0 auto;
+  box-sizing: border-box;
+  @media (max-width: $mobile) {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+#main_container {
+  min-width: 964px;
+  max-width: 1124px;
+  width: auto;
+
+  margin: 0 40px;
+
+  padding: 0 30px;
+  text-align: center;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: var(--c1);
+
+  @media (max-width: $mobile) {
+    min-width: 0px;
+    max-width: 1000px;
+    width: calc(100% - 30px);
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+}
+
+h1,
+h2,
+.nav-link {
+  color: var(--grey);
+  font-family: "Saira", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+h1 {
+  font-size: 56px;
+  margin: 32px 0;
+  @media (max-width: $mobile) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: 0.5px;
+  margin: 0 0 30px;
+  @media (max-width: $mobile) {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+}
+a {
+  text-decoration: none;
+  color: color-mix(in srgb, var(--c1) 80%, black);
+  font-weight: 600;
+
+  &:hover {
+    color: var(--c1);
+  }
+}
+p {
+  margin: 0;
+}
+.page-title {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.page-subtitle {
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-size: 14px;
+
+  @media (max-width: $mobile) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+button,
+.btn {
+  font-family: "Saira", sans-serif;
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 16px;
+  color: var(--grey);
+  border-radius: 10px;
+  border: none;
+  background: var(--c1);
+  padding: 5px 10px;
+  transition: 0.2s ease;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+
+  @media (min-width: $desktop) {
+    &:hover {
+      padding: 8px 13px;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    &:active {
+      padding: 8px 13px;
+    }
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  transition: 0.2s ease;
+
+  @media (max-width: $mobile) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.popup-general {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  width: max-content;
+  max-width: 200px;
+  transform: translate(-50%, 30%);
+  background: var(--c2);
+  color: var(--black);
+  padding: 20px 40px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 15px;
+  z-index: 99;
+
+  opacity: 0;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+
+  @media (max-width: $mobile) {
+    padding: 20px 20px;
+  }
+}
+
+.hide {
+  display: none;
+}

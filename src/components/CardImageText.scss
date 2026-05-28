@@ -1,0 +1,94 @@
+@use "../variables.scss" as *;
+
+.card-image-text {
+  position: relative;
+  background-color: var(--bg);
+
+  &.revert {
+    .content {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &:has(+ .card-image-text) {
+    .content {
+      padding-top: 5px;
+      padding-bottom: 5px;
+
+      @media (max-width: $mobile) {
+        flex-direction: column !important;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    padding: 5px 80px 40px;
+
+    @media (max-width: $mobile) {
+      flex-direction: column !important;
+      padding: 20px;
+      padding-bottom: 30px;
+    }
+  }
+
+  .image-frame {
+    //float: left;
+    margin: 20px;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: $mobile) {
+      margin-top: 0px;
+    }
+  }
+
+  .image-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: rotate(5deg);
+    z-index: 0;
+  }
+
+  &:nth-child(3n + 1) .image-frame::before {
+    background-color: var(--c3);
+  }
+
+  &:nth-child(3n + 2) .image-frame::before {
+    background-color: var(--c4);
+  }
+
+  &:nth-child(3n + 3) .image-frame::before {
+    background-color: var(--c5);
+  }
+
+  img {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    outline: 2px dashed var(--bg);
+    outline-offset: -6px;
+    background-color: var(--c1);
+
+    @media (max-width: $mobile) {
+      max-width: 230px;
+    }
+  }
+
+  p {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    white-space: pre-line;
+  }
+}

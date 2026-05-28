@@ -1,0 +1,32 @@
+.footer {
+  margin-top: auto;
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+    padding: 10px 40px;
+    margin-bottom: 10px;
+    margin-top: 60px;
+
+    background: var(--bg);
+
+    font-size: 12px;
+    line-height: 16px;
+    border-radius: 10px;
+    text-align: left;
+  }
+}
+
+.footer-center,
+.footer-right {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
