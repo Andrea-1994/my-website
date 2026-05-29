@@ -4,7 +4,6 @@ import CardInfo from "../components/CardInfo";
 import ScrollUp from "../components/ScrollUp";
 import "./Bio.scss";
 import { useState, useRef, useEffect } from "react";
-import { track } from "@vercel/analytics";
 
 import { useQuery } from "@tanstack/react-query";
 import { getIntro, getBio, getInfo } from "../api/bio.api";
@@ -39,7 +38,6 @@ export default function Bio() {
 
   function showBio() {
     setShow(true);
-    track("showBio");
   }
 
   return (

@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from "react";
-import { track } from "@vercel/analytics";
 import { isMobile } from "../utils";
 import { useSearchParams } from "react-router-dom";
 
@@ -52,7 +51,6 @@ export default function ProjectCard({
   function highlightThis() {
     setHighlighted((prev) => (prev === project.id ? null : project.id));
     scrolltoCard();
-    track("ShowMore", { project: project.name });
   }
 
   return (
