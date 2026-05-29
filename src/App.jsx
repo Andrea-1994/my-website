@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { track } from "@vercel/analytics";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { getRandomPastel } from "./utils";
 import Navbar from "./components/Navbar";
@@ -32,6 +33,21 @@ function App() {
       document.title = title + " | Khiron";
     }
   }, [location.pathname]);
+
+  //track links
+  useEffect(() => {
+    const handleClick = (e) => {
+      const a = e.target.closest("a");
+
+      if (!a) return;
+
+      track("linkClick", { href: a.href });
+    };
+
+    document.addEventListener("click", handleClick);
+
+    return () => document.removeEventListener("click", handleClick);
+  }, []);
 
   return (
     <>

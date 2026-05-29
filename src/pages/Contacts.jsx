@@ -3,6 +3,7 @@ import CopyIcon from "../assets/icons/icon_copy.svg?react";
 import LinkedinIcon from "../assets/icons/icon_linkedin.svg?react";
 import InstagramIcon from "../assets/icons/icon_instagram.svg?react";
 import DiscordIcon from "../assets/icons/icon_discord.svg?react";
+import { track } from "@vercel/analytics";
 import "./Contacts.scss";
 
 export default function Contacts() {
@@ -54,7 +55,7 @@ export default function Contacts() {
         document.execCommand("copy");
         textarea.remove();
       }
-
+      track("CopyEmail");
       setCopied(true);
       setTimeout(() => setCopied(false), 1200);
     } catch (err) {
