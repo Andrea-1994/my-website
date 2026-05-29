@@ -97,8 +97,9 @@ body {
     }
 
     .year-marker {
+      background: transparent !important;
       small {
-        background-color: transparent !important;
+        background: transparent !important;
       }
     }
   }
@@ -166,7 +167,7 @@ h2 {
     margin-bottom: 15px;
   }
 }
-a {
+a:not(.btn) {
   text-decoration: none;
   color: color-mix(in srgb, var(--c1) 80%, black);
   font-weight: 600;

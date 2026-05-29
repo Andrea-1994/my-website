@@ -67,7 +67,7 @@ export default function Bio() {
                 <b>Ok, fine.</b>
               </p>
               <p>
-                <b>get comfrotable...</b>
+                <b>get comfortable...</b>
               </p>
             </div>
             <div>

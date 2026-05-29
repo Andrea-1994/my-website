@@ -116,7 +116,39 @@ export default function Navbar() {
         </NavLink>
 
         <div className="mobile-nav" onClick={() => setOpen((prev) => !prev)}>
-          <button>☰</button>
+          <button>
+            <button className="menu-btn">
+              <svg width="28" height="28" viewBox="0 0 24 24">
+                <line
+                  x1="6"
+                  y1="6"
+                  x2="18"
+                  y2="6"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+                <line
+                  x1="6"
+                  y1="12"
+                  x2="18"
+                  y2="12"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+                <line
+                  x1="6"
+                  y1="18"
+                  x2="18"
+                  y2="18"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+          </button>
 
           <div className={`mobile-links ${open ? "active" : ""}`}>
             <NavLink
