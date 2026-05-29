@@ -1,5 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { getRandomPastel } from "./utils";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -43,6 +45,8 @@ function App() {
           <Route path="/contacts" element={<Contacts />} />
         </Routes>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </div>
     </>
   );

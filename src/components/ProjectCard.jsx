@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useRef } from "react";
 import { isMobile } from "../utils";
 import { useSearchParams } from "react-router-dom";
 

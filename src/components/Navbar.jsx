@@ -16,35 +16,12 @@ export default function Navbar() {
     if (!box) return;
 
     let current = angle.current;
-    let target = 10;
     let spinEnd = false;
-
-    const handleMove = (e) => {
-      const rect = box.getBoundingClientRect();
-
-      ///const dx = e.clientX - (rect.left + rect.width / 2);
-      // const dy = e.clientY - (rect.top + rect.height / 2);
-
-      const cx = rect.left + rect.width / 2;
-
-      const dx = e.clientX - cx;
-
-      //force vertical to not matter
-      const dy = 60;
-
-      const raw = (Math.atan2(dy, dx) * 180) / Math.PI;
-
-      target = raw;
-    };
 
     const animate = () => {
       current = angle.current;
       if (!spinningRef.current) {
         spinEnd = false;
-        /* //slower animation
-        current += (target - current) * 0.03;
-
-        box.style.setProperty("--grad-angle", `${current}deg`);*/
       } else {
         //do spin
         if (current > -169 && !spinEnd) {
@@ -64,10 +41,7 @@ export default function Navbar() {
       requestAnimationFrame(animate);
     };
 
-    //window.addEventListener("mousemove", handleMove);
     animate();
-
-    return () => window.removeEventListener("mousemove", handleMove);
   }, []);
 
   //on change page
