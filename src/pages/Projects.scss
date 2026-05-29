@@ -109,6 +109,7 @@
         .desc {
           display: none;
           font-size: 12px;
+          line-height: 18px;
           gap: 10px;
           flex-direction: column;
           justify-content: space-between;
@@ -164,11 +165,13 @@
 
         b {
           font-size: 12px;
+          line-height: 18px;
         }
 
         span {
           color: var(--black);
           font-size: 12px;
+          line-height: 18px;
           font-weight: 500;
           margin-top: auto;
         }
