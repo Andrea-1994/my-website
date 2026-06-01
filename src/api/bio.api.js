@@ -74,7 +74,7 @@ const fakeBio = {
     {
       text: `As a teenager (the worst version of me) I became even more introverted and quiet. I hated school and other kids, or at least most of them.
           It was during this period that I started disassembling and reassembling my computer and became more interested in everything related to that world.\n 
-          After three years of middle school I started high school at a scientific Istitute, but I didn’t pass the first year, so I moved to an agricultural technical institute. 
+          After three years of middle school I started high school at a scientific institute, but I didn’t pass the first year, so I moved to an agricultural technical institute. 
           In 2014 I graduated with a score of 95/100, pretty useless considering my future life choices.`,
       photo: "/photos/bio_photo_2.jpg",
     },
